@@ -27,7 +27,7 @@ true_labels = {
 }
 
 # Load the trained model
-model = load_model('trained_model.h5')  # Ensure to save your model after training
+model = load_model('trained_model.h5')  
 
 # Class labels
 class_labels = ["crack", "missing-head", "paint-off"]
@@ -35,9 +35,9 @@ class_labels = ["crack", "missing-head", "paint-off"]
 # Function to preprocess and predict a single image
 def predict_image(image_path, true_label, model):
     # Load and preprocess the image
-    img = load_img(image_path, target_size=(100, 100))  # Adjust to match model input size if necessary
-    img_array = img_to_array(img) / 255.0  # Normalize the image
-    img_array = np.expand_dims(img_array, axis=0)  # Expand dimensions to match model input
+    img = load_img(image_path, target_size=(100, 100))  
+    img_array = img_to_array(img) / 255.0  
+    img_array = np.expand_dims(img_array, axis=0)
 
     # Make prediction
     predictions = model.predict(img_array)[0]

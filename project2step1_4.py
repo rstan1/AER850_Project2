@@ -4,7 +4,7 @@ Created on Thu Nov  7 11:46:25 2024
 @author: robstan 501095883
 """
 
-# Import libraries
+# Importing libraries
 import tensorflow as tf
 import matplotlib.pyplot as plt
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -47,7 +47,7 @@ validation_generator = validation_datagen.flow_from_directory(
     class_mode='categorical'
 )
 
-# Initialize the model
+# Initializing the model
 model = Sequential()
 
 # Input Convolutional Layer
@@ -80,7 +80,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accur
 
 model.summary()
 
-# Train the model
+# Training the model
 history = model.fit(
     train_generator,
     epochs=10,
@@ -97,7 +97,7 @@ print(f"Validation Accuracy: {val_accuracy}")
 # Plot training & validation accuracy values
 plt.figure(figsize=(12, 4))
 
-# Plot accuracy
+# Plotting accuracy
 plt.subplot(1, 2, 1)
 plt.plot(history.history['accuracy'], label='Training Accuracy')
 plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
@@ -106,7 +106,7 @@ plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
 plt.legend(loc='upper left')
 
-# Plot loss
+# Plotting loss
 plt.subplot(1, 2, 2)
 plt.plot(history.history['loss'], label='Training Loss')
 plt.plot(history.history['val_loss'], label='Validation Loss')
